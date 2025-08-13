@@ -1,4 +1,4 @@
-package com.example._250813_react_practice_todolist_backend;
+package com.example._250813_react_practice_todolist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
