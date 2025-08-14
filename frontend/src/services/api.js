@@ -41,4 +41,51 @@ export const todoApi = {
     const response = await api.get("/todos", { params });
     return response.data;
   },
+  getTodosPaged: async (
+    page = 0,
+    size = 10,
+    sortBy = "createAt",
+    sortDir = "desc"
+  ) => {
+    const response = await api.get("/todos/page", {
+      params: { page, size, sortBy, sortDir },
+    });
+    return response.data;
+  },
+  getTodoById: async (id) => {
+    const response = await api.get(`/todos/${id}`);
+    return response.data;
+  },
+  createTodo: async (todoData) => {
+    const response = await api.post("/todos", todoData);
+    return response.data;
+  },
+  updateTodo: async (id, todoData) => {
+    const response = await api.put(`/todos/${id}`, todoData);
+    return response.data;
+  },
+  toggleTodoCompleted: async (id) => {
+    const response = await api.patch(`/todos/${id}/toggle`);
+    return response.data;
+  },
+  deleteTodo: async (id) => {
+    const response = await api.delete(`/todos/${id}`);
+    return response.data;
+  },
+  getStats: async () => {
+    const response = await api.get("/todos/stats");
+    return response.data;
+  },
+  searchTodos: async (searchTerm) => {
+    const response = await api.get("/todos", {
+      params: { search: searchTerm },
+    });
+    return response.data;
+  },
+  getTodosByCompleted: async (completed) => {
+    const response = await api.get("/todos", {
+      params: { completed },
+    });
+    return response.data;
+  },
 };
